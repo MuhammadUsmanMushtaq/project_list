@@ -1,30 +1,39 @@
-// import React from 'react';
-
-// const App = () => {
-//   return (
-//     <div className='bg-[#172842] min-h-screen py-8'>
-//       <div className='w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white'>
-//         <h1 className='text-2xl font-bold text-center mb-8 mt-2'>
-//           Manage Your Todos
-//         </h1>
-//         <div className='mb-4'>{/* Todo form goes here */}</div>
-//         <div className='flex flex-wrap gap-y-3'>
-//           {/*Loop and Add TodoItem here */}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default App;
-
-import Quiz from './components/Quiz';
-import { jsQuiz } from './data';
+import Projects from './Projects';
+import Layout from './components/Layout';
+const projects = [
+  {
+    id: 1,
+    projectName: 'Web Hosting',
+    status: 'Active',
+  },
+  {
+    id: 2,
+    projectName: 'Web page',
+    status: 'Active',
+  },
+  {
+    id: 3,
+    projectName: 'Cloud Service',
+    status: 'Inactive',
+  },
+  {
+    id: 4,
+    projectName: 'App development',
+    status: 'Active',
+  },
+  {
+    id: 5,
+    projectName: 'Project Mgmt',
+    status: 'Inactive',
+  },
+];
 const App = () => {
   return (
-    <div>
-      <Quiz questions={jsQuiz.questions} />
-    </div>
+    <Layout>
+      <div className='text-center  p-4'>
+        <Projects projects={projects} />
+      </div>
+    </Layout>
   );
 };
 
