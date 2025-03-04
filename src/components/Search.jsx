@@ -3,14 +3,14 @@ import React from 'react';
 export const Search = () => {
   return (
     <div className=' pt-8 pb-12'>
-      <form className='rounded-md bg-white p-6 shadow'>
+      <form className='rounded-md bg-white p-6 shadow-md'>
         <div className='mb-2 flex items-center'>
           <input
             type='text'
-            className='w-full rounded-lg border border-gray-200 p-2'
+            className='w-full rounded-md bg-gray-100 border border-gray-200 p-2'
             placeholder='Search ...'
           />
-          <button className='ml-2 rounded-md bg-green-600 p-2 text-white hover:bg-green-700'>
+          <button className='md:w-[120px] ml-2 rounded-md bg-green-700 p-2 text-white hover:bg-green-800'>
             Search
           </button>
         </div>

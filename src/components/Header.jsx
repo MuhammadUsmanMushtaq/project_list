@@ -6,8 +6,7 @@ const Header = () => {
   return (
     <header>
       <nav className='flex justify-between items-center  p-4 bg-green-700 '>
-        {/* <h2 className='text-2xl text-white font--bold'>NovoIT</h2> */}
-        <img src='public/logo.jpg' alt='logo' width={98} />
+        <img src='/logo.jpg' alt='logo' width={98} />
         <ul className='flex gap-4 text-white'>
           <li>
             <NavLink
@@ -35,12 +34,6 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      {/* <div className='p-8 bg-green-700  flex justify-center '>
-        <h2 className='text-white text-center text-4xl w-[640px] tracking-wider'>
-          Simplifying project tracking with clear financial reporting and
-          accurate invoicing.
-        </h2>
-      </div> */}
     </header>
   );
 };
