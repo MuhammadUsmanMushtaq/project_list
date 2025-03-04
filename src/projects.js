@@ -1,0 +1,34 @@
+const projects = [
+  {
+    id: 1,
+    projectName: 'Web Hosting',
+    clientName: 'xyz consultant',
+    status: 'Completed',
+  },
+  {
+    id: 2,
+    projectName: 'Web page',
+    clientName: 'xyz consultant',
+    status: 'Completed',
+  },
+  {
+    id: 3,
+    projectName: 'Cloud Service',
+    clientName: 'AB consultant',
+    status: 'In progress',
+  },
+  {
+    id: 4,
+    projectName: 'App development',
+    clientName: 'A&Z consultant',
+    status: 'Completed',
+  },
+  {
+    id: 5,
+    projectName: 'Project Mgmt',
+    clientName: 'A&Z consultant',
+    status: 'In progress',
+  },
+];
+
+export default projects;

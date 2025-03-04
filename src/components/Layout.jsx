@@ -1,13 +1,15 @@
 import React from 'react';
+import Header from './Header';
 
 const Layout = ({ children }) => {
   return (
     <>
-      <nav className='p-4 bg-green-600'>
-        <h2 className='text-2xl text-white font--bold'>NovoIT</h2>
-      </nav>
-
+      <Header />
       <main>{children}</main>
+      <footer className='flex flex-col text-sm text-center border-t p-2 '>
+        <span>ALL RIGHTS RESERVED</span>
+        <span>NOVO IT</span>
+      </footer>
     </>
   );
 };
