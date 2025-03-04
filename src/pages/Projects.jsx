@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Search } from '../components/Search';
 
 const Projects = ({ projects }) => {
   return (
-    <div className='p-4'>
-      {projects.map((project, index) => (
+    <div className='bg-gray-100 p-4'>
+      <Search />
+      {projects.map((project) => (
         <Link
           to={`/projects/${project.id}`}
           key={project.id}
-          className={`project ${
-            index % 2 === 0
-              ? 'p-4 border-[1px] shadow-sm border-gray-200 rounded-md mb-1 flex justify-between items-center bg-gray-100'
-              : 'p-4 border-[1px] shadow-sm border-gray-200 rounded-md mb-1 flex justify-between items-center'
-          }`}
+          className='p-4 border-[1px] shadow-sm border-gray-200 rounded-md mb-1 flex justify-between items-center bg-white'
         >
           <div className='flex flex-col text-left'>
             <span className='text-xl'>{project.projectName}</span>
