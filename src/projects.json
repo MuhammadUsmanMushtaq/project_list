@@ -19,7 +19,7 @@
     "supplierInvoice": 10000,
     "expected": 6000,
     "outcome": 6000,
-    "status": "Completed"
+    "status": "In progress"
   },
   {
     "id": 3,
@@ -41,7 +41,7 @@
     "supplierInvoice": 10000,
     "expected": 8000,
     "outcome": 7000,
-    "status": "Completed"
+    "status": "In progress"
   },
   {
     "id": 5,
