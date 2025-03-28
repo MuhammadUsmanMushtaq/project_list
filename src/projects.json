@@ -2,31 +2,56 @@
   {
     "id": 1,
     "projectName": "Web Hosting",
+    "projectNumber": 12345,
     "clientName": "xyz consultant",
+    "customerInvoice": 15000,
+    "supplierInvoice": 10000,
+    "expected": 5000,
+    "outcome": 4000,
     "status": "Completed"
   },
   {
     "id": 2,
     "projectName": "Web page",
+    "projectNumber": 12233,
     "clientName": "xyz consultant",
+    "customerInvoice": 16000,
+    "supplierInvoice": 10000,
+    "expected": 6000,
+    "outcome": 6000,
     "status": "Completed"
   },
   {
     "id": 3,
     "projectName": "Cloud Service",
+    "projectNumber": 55345,
     "clientName": "AB consultant",
+    "customerInvoice": 12000,
+    "supplierInvoice": 8000,
+    "expected": 4000,
+    "outcome": 4000,
     "status": "In progress"
   },
   {
     "id": 4,
     "projectName": "App development",
+    "projectNumber": 65655,
     "clientName": "A&Z consultant",
+    "customerInvoice": 18000,
+    "supplierInvoice": 10000,
+    "expected": 8000,
+    "outcome": 7000,
     "status": "Completed"
   },
   {
     "id": 5,
     "projectName": "Project Mgmt",
+    "projectNumber": 43234,
     "clientName": "A&Z consultant",
+    "customerInvoice": 20000,
+    "supplierInvoice": 10000,
+    "expected": 10000,
+    "outcome": 9000,
     "status": "In progress"
   }
 ]

@@ -5,9 +5,9 @@ import { Search } from './Search';
 const Header = () => {
   return (
     <header>
-      <nav className='flex justify-between items-center  p-4 bg-green-700 '>
+      <nav className='flex justify-between items-center  p-4 bg-[#63a27a] '>
         <img src='/logo.jpg' alt='logo' width={98} />
-        <ul className='flex gap-4 text-white'>
+        {/* <ul className='flex gap-4 text-white'>
           <li>
             <NavLink
               className={({ isActive }) =>
@@ -32,7 +32,7 @@ const Header = () => {
               Invoices
             </NavLink>
           </li>
-        </ul>
+        </ul> */}
       </nav>
     </header>
   );

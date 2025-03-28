@@ -10,7 +10,7 @@ export const Search = () => {
             className='w-full rounded-md bg-gray-100 border border-gray-200 p-2'
             placeholder='Search ...'
           />
-          <button className='md:w-[120px] ml-2 rounded-md bg-green-700 p-2 text-white hover:bg-green-800'>
+          <button className='md:w-[120px] ml-2 rounded-md  bg-[#63a27a] p-2 text-white hover:bg-green-700'>
             Search
           </button>
         </div>

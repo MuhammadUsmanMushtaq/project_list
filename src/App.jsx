@@ -43,7 +43,6 @@ const App = () => {
             path='/projects/:id'
             element={<ProjectDetails projects={projects} />}
           />
-          <Route path='/invoices' element={<Invoices />} />
         </Routes>
       </Layout>
     </Router>
