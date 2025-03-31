@@ -52,6 +52,61 @@
     "supplierInvoice": 10000,
     "expected": 10000,
     "outcome": 9000,
+    "status": "Completed"
+  },
+  {
+    "id": 6,
+    "projectName": "Cloud services",
+    "projectNumber": 43224,
+    "clientName": "MG consultant",
+    "customerInvoice": 20000,
+    "supplierInvoice": 15000,
+    "expected": 10000,
+    "outcome": 8000,
     "status": "In progress"
+  },
+  {
+    "id": 7,
+    "projectName": "Web Hosting",
+    "projectNumber": 424234,
+    "clientName": "Sara",
+    "customerInvoice": 20000,
+    "supplierInvoice": 10000,
+    "expected": 10000,
+    "outcome": 7000,
+    "status": "In progress"
+  },
+  {
+    "id": 8,
+    "projectName": "Server Installation",
+    "projectNumber": 993234,
+    "clientName": "MG Tech",
+    "customerInvoice": 20000,
+    "supplierInvoice": 10000,
+    "expected": 10000,
+    "outcome": 9000,
+    "status": "In progress"
+  },
+  {
+    "id": 9,
+    "projectName": "AI ",
+    "projectNumber": 43234,
+    "clientName": "Bitbyteshift",
+    "customerInvoice": 20000,
+    "supplierInvoice": 10000,
+    "expected": 10000,
+    "outcome": 9000,
+    "status": "Completed"
+  },
+  {
+    "id": 10,
+    "projectName": "Cloud Storage",
+    "projectNumber": 43234,
+    "clientName": "Unicorn",
+    "customerInvoice": 20000,
+    "supplierInvoice": 10000,
+    "expected": 10000,
+    "outcome": 9000,
+    "status": "Completed"
   }
 ]

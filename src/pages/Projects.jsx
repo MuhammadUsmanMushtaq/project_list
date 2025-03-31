@@ -1,72 +1,65 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Search } from '../components/Search';
-import { RiProgress4Line, RiProgress8Line } from 'react-icons/ri';
 
 const Projects = ({ projects }) => {
-  const filterData = projects.filter((item) => item.status === 'In progress');
-  console.log(filterData);
   return (
-    <div className='bg-gray-100 p-4'>
+    <div className='max-w-6xl mx-auto bg-whiteshadow-md'>
       <Search />
-      {filterData.map((project) => (
-        <div className=' justify-between p-2 border-[1px] shadow-sm border-l-4 border-gray-200 rounded-md mb-2 flex items-center bg-white  hover:border-[#63a27a] '>
-          <div className=' flex flex-col  text-left'>
-            <p className='  font-semibold'>Project number</p>
-            <p className=''>{project.projectNumber}</p>
-          </div>
-          <div className='flex flex-col  text-left'>
-            <p className=' font-semibold'>Client name</p>
-            <p className=''>{project.clientName}</p>
-          </div>
-          <div className='flex flex-col  text-left'>
-            <p className=' font-semibold'>Customer invoice</p>
-            <p className=''>{project.customerInvoice}</p>
-          </div>
-          <div className='flex flex-col  text-left'>
-            <p className=' font-semibold'>Supplier invoice</p>
-            <p className=''>{project.supplierInvoice}</p>
-          </div>
-          <div className='flex flex-col text-left'>
-            <p className=' font-semibold'>Expected</p>
-            <p className=''>{project.expected}</p>
-          </div>
-          <div className='flex flex-col text-left'>
-            <p className=' font-semibold'>Outcome</p>
-            <p className=''>{project.outcome}</p>
-          </div>
-          <div className='flex gap-2 flex-col leading-3 text-left'>
-            <div className='flex items-center gap-2'>
-              <p>{project.status}</p>
-              <p>
-                {project.status === 'Completed' ? (
-                  <RiProgress8Line className=' text-green-600' />
-                ) : (
-                  <RiProgress4Line className='animate-spin text-orange-400' />
-                )}
-              </p>
-            </div>
+      <div className='grid grid-cols-9 gap-4 bg-gray-100 font-medium p-3 rounded-t-md text-sm '>
+        <div>Project #</div>
+        <div>Cust Name</div>
+        <div>Cust Invoice</div>
+        <div>Supp Invoice</div>
+        <div>Expected</div>
+        <div>Outcome</div>
+        <div>Status</div>
+        <div>Details</div>
+        <div>Actions</div>
+      </div>
+      {projects.map((project) => (
+        <div className='divide-y divide-gray-300 '>
+          <div className='grid grid-cols-9 gap-4 p-2 items-center border-b border-x border-gray-100 hover:bg-gray-50 text-sm '>
+            <div>{project.projectNumber}</div>
+            <div>{project.clientName}</div>
+            <div>{project.customerInvoice}</div>
+            <div>{project.supplierInvoice}</div>
+            <div>{project.expected}</div>
+            <div>{project.outcome}</div>
             {project.status === 'Completed' ? (
-              <label className='flex text-sm gap-5 items-center selection:leading-3 text-left'>
-                In progress
-                <input type='checkbox' className='mr-2' />
-              </label>
+              <div>
+                <span className='border-green-500 bg-green-50 text-green-500 font-medium border rounded-full px-2 py-1 text-center text-xs'>
+                  {project.status}
+                </span>
+              </div>
             ) : (
-              <label className='flex text-sm gap-5 items-center selection:leading-3 text-left'>
-                Completed
-                <input type='checkbox' className='mr-2' />
-              </label>
+              <div>
+                <span className='border-orange-500 bg-orange-50 text-orange-400 font-medium border rounded-full px-2 py-1 text-center text-xs'>
+                  {project.status}
+                </span>
+              </div>
             )}
-            <Link
-              to={`/projects/${project.id}`}
-              key={project.id}
-              className='text-blue-500'
-            >
-              details
-            </Link>
+
+            <div>
+              <a href='#' className='text-blue-500 underline'>
+                View
+              </a>
+            </div>
+            <div>
+              {project.status === 'Completed' ? (
+                <span>----</span>
+              ) : (
+                <button className='px-2 py-1 bg-[#63a27a] text-white rounded'>
+                  Done
+                </button>
+              )}
+            </div>
           </div>
         </div>
       ))}
+      <div className='border-x border-b rounded-b-md pt-8'>
+        <div className='text-center mt-6 p-6 bg-gray-100'>pagination</div>
+      </div>
     </div>
   );
 };
