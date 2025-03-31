@@ -1,74 +1,71 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Search } from '../components/Search';
-import { RiProgress4Line, RiProgress8Line } from 'react-icons/ri';
+import React, { useEffect, useState } from 'react';
 
-const Projects = ({ projects }) => {
-  const filterData = projects.filter((item) => item.status === 'In progress');
-  console.log(filterData);
+const LoadMoreData = () => {
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [count, setCount] = useState(0);
+  const [disableBtn, setDisableBtn] = useState(false);
+
+  async function fetchProducts() {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://dummyjson.com/products?limit=20&skip=${
+          count === 0 ? 0 : count * 20
+        }`
+      );
+      const result = await response.json();
+      if (result && result.products && result.products.length) {
+        setProducts((prevData) => [...prevData, ...result.products]);
+        setLoading(false);
+      }
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchProducts();
+  }, [count]);
+
+  useEffect(() => {
+    if (products && products.length === 100) setDisableBtn(true);
+  }, [products]);
+
+  if (loading) return <div>Loading Data...Please wait </div>;
   return (
-    <div className='bg-gray-100 p-4'>
-      <Search />
-      {filterData.map((project) => (
-        <div className=' justify-between p-2 border-[1px] shadow-sm border-l-4 border-gray-200 rounded-md mb-2 flex items-center bg-white  hover:border-[#63a27a] '>
-          <div className=' flex flex-col  text-left'>
-            <p className='  font-semibold'>Project number</p>
-            <p className=''>{project.projectNumber}</p>
-          </div>
-          <div className='flex flex-col  text-left'>
-            <p className=' font-semibold'>Client name</p>
-            <p className=''>{project.clientName}</p>
-          </div>
-          <div className='flex flex-col  text-left'>
-            <p className=' font-semibold'>Customer invoice</p>
-            <p className=''>{project.customerInvoice}</p>
-          </div>
-          <div className='flex flex-col  text-left'>
-            <p className=' font-semibold'>Supplier invoice</p>
-            <p className=''>{project.supplierInvoice}</p>
-          </div>
-          <div className='flex flex-col text-left'>
-            <p className=' font-semibold'>Expected</p>
-            <p className=''>{project.expected}</p>
-          </div>
-          <div className='flex flex-col text-left'>
-            <p className=' font-semibold'>Outcome</p>
-            <p className=''>{project.outcome}</p>
-          </div>
-          <div className='flex  flex-col leading-3 text-left'>
-            <div className='flex items-center gap-2'>
-              <p className='text-sm'>{project.status}</p>
-              <p>
-                {project.status === 'Completed' ? (
-                  <RiProgress8Line className=' text-green-600' />
-                ) : (
-                  <RiProgress4Line className='animate-spin text-orange-400' />
-                )}
-              </p>
-            </div>
-            {project.status === 'Completed' ? (
-              <label className='flex text-sm gap-5 items-center selection:leading-3 text-left'>
-                In progress
-                <input type='checkbox' className='mr-2' />
-              </label>
-            ) : (
-              <label className='flex text-sm gap-3 items-center selection:leading-3 text-left'>
-                Completed
-                <input type='checkbox' className='mr-2' />
-              </label>
-            )}
-            <Link
-              to={`/projects/${project.id}`}
-              key={project.id}
-              className='text-blue-500 text-sm'
-            >
-              details
-            </Link>
-          </div>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className='flex flex-wrap justify-center gap-2 items-top'>
+        {products && products.length
+          ? products.map((item) => (
+              <div
+                className='flex flex-col w-[200px] border-2 border-gray-400 shadow-md rounded-md p-2'
+                key={item.id}
+              >
+                <img src={item.thumbnail} alt={item.title} />
+                <p>{item.title}</p>
+              </div>
+            ))
+          : null}
+      </div>
+      <div>
+        <button
+          className={
+            disableBtn
+              ? ' w-[300px] mt-4 rounded-lg p-2 text-white bg-gray-300'
+              : ' w-[300px] mt-4 rounded-lg p-2 text-white bg-blue-600'
+          }
+          disabled={disableBtn}
+          onClick={() => setCount(count + 1)}
+        >
+          Load more
+        </button>
+        {disableBtn ? <p>You have reached the 100 products limit</p> : null}
+      </div>
+    </>
   );
 };
 
-export default Projects;
+export default LoadMoreData;

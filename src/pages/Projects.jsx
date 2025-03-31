@@ -18,7 +18,7 @@ const Projects = ({ projects }) => {
         <div>Actions</div>
       </div>
       {projects.map((project) => (
-        <div className='divide-y divide-gray-300 '>
+        <div key={project.id} className='divide-y divide-gray-300 '>
           <div className='grid grid-cols-9 gap-4 p-2 items-center border-b border-x border-gray-100 hover:bg-gray-50 text-sm '>
             <div>{project.projectNumber}</div>
             <div>{project.clientName}</div>
@@ -41,9 +41,13 @@ const Projects = ({ projects }) => {
             )}
 
             <div>
-              <a href='#' className='text-blue-500 underline'>
-                View
-              </a>
+              <Link
+                to={`/projects/${project.id}`}
+                key={project.id}
+                className='text-blue-600 '
+              >
+                details
+              </Link>
             </div>
             <div>
               {project.status === 'Completed' ? (

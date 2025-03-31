@@ -2,8 +2,8 @@ import React from 'react';
 
 export const Search = () => {
   return (
-    <div className=' pt-8 pb-12'>
-      <form className='rounded-md bg-white p-6 shadow-md'>
+    <div className=' pt-8 pb-12 '>
+      <form className='rounded-md bg-white p-6 shadow'>
         <div className='mb-2 flex items-center'>
           <input
             type='text'

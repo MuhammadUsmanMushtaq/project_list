@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Projects from './pages/Projects';
 import ProjectDetails from './pages/ProjectDetails';
-import Invoices from './pages/Invoices';
 import Layout from './components/Layout';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BsArrowRepeat } from 'react-icons/bs';
 import axios from 'axios';
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
         const response = await axios.get('src/projects.json');
         setProjects(response.data);
       } catch (err) {
-        setError('Error fetching data');
+        setError('Error fetching data. Please try again later.');
       } finally {
         setLoading(false);
       }
@@ -27,7 +27,12 @@ const App = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className='flex justify-center items-center mt-16 flex-col h-screen'>
+        <BsArrowRepeat className='animate-spin text-[#63a27a]' size={64} />
+        <p> Loading . . .</p>
+      </div>
+    );
   }
 
   if (error) {
