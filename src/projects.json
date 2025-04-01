@@ -18,7 +18,7 @@
     "customerInvoice": 16000,
     "supplierInvoice": 10000,
     "expected": 6000,
-    "outcome": 6000,
+    "outcome": 9,
     "status": "In progress"
   },
   {

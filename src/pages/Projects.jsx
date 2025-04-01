@@ -60,7 +60,7 @@ const Projects = ({ projects }) => {
               </div>
               <div>
                 {project.status === 'Completed' ? (
-                  <span>----</span>
+                  <p className='px-2 py-1'>----</p>
                 ) : (
                   <button className='px-2 py-1 bg-[#63a27a] text-white rounded'>
                     Done

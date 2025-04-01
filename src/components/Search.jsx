@@ -39,7 +39,9 @@ export const Search = ({ data, onSearchResults }) => {
         (inprogressFilter && project.status === 'In progress') ||
         (!completedFilter && !inprogressFilter);
 
-      return matchesTerm && matchesStatus;
+      const matchesOutcome = project.outcome >= 10;
+
+      return matchesTerm && matchesStatus && matchesOutcome;
     });
 
     onSearchResults(filteredData);
