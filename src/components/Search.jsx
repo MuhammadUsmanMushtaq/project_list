@@ -1,24 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { FiSearch } from 'react-icons/fi';
 
 export const Search = ({ data, onSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [isInprogress, setIsInprogress] = useState(true);
+
+  useEffect(() => {
+    filterData(searchTerm, isCompleted, isInprogress);
+  }, []);
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
+    filterData(term, isCompleted, isInprogress);
+  };
 
-    const filteredData = data.filter(
-      (project) =>
+  const handleCompletedChange = (e) => {
+    const checked = e.target.checked;
+    setIsCompleted(checked);
+    filterData(searchTerm, checked, isInprogress);
+  };
+
+  const handleInprogressChange = (e) => {
+    const checkedInprogress = e.target.checked;
+    setIsInprogress(checkedInprogress);
+    filterData(searchTerm, isCompleted, checkedInprogress);
+  };
+
+  const filterData = (term, completedFilter, inprogressFilter) => {
+    const filteredData = data.filter((project) => {
+      const matchesTerm =
         project.clientName.toLowerCase().includes(term.toLowerCase()) ||
-        project.projectNumber.toString().includes(term)
-    );
+        project.projectNumber.toString().includes(term);
+
+      const matchesStatus =
+        (completedFilter && project.status === 'Completed') ||
+        (inprogressFilter && project.status === 'In progress') ||
+        (!completedFilter && !inprogressFilter);
+
+      return matchesTerm && matchesStatus;
+    });
+
     onSearchResults(filteredData);
   };
 
   return (
-    <div className=' pt-8 pb-12 '>
-      <form className='rounded-md bg-white p-6 shadow'>
-        <div className='mb-2 flex items-center'>
+    <div className=''>
+      <form className='rounded-md bg-white p-6  flex flex-col justify-center items-center'>
+        <div className='mb-2 flex items-center w-2/4 relative'>
           <input
             type='text'
             value={searchTerm}
@@ -26,17 +56,25 @@ export const Search = ({ data, onSearchResults }) => {
             className='w-full rounded-md bg-gray-100 border border-gray-200 p-2'
             placeholder='Search by customer number or customer name...'
           />
-          <button className='md:w-[120px] ml-2 rounded-md  bg-[#63a27a] p-2 text-white hover:bg-green-700'>
-            Search
-          </button>
+          <FiSearch className='absolute right-2 text-gray-500' />
         </div>
         <div className='flex text-sm'>
           <label className='mr-4'>
-            <input type='checkbox' className='mr-2 ' />
+            <input
+              checked={isCompleted}
+              onChange={handleCompletedChange}
+              type='checkbox'
+              className='mr-2'
+            />
             Completed
           </label>
           <label className='mr-4'>
-            <input type='checkbox' className='mr-2 ' />
+            <input
+              checked={isInprogress}
+              onChange={handleInprogressChange}
+              type='checkbox'
+              className='mr-2'
+            />
             In progress
           </label>
         </div>

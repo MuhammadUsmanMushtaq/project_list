@@ -8,6 +8,7 @@ const Projects = ({ projects }) => {
   const handleSearchResults = (results) => {
     setFilteredProjects(results);
   };
+
   return (
     <div className='max-w-6xl mx-auto bg-whiteshadow-md'>
       <Search data={projects} onSearchResults={handleSearchResults} />
