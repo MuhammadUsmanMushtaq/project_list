@@ -35,7 +35,7 @@ const Projects = ({ projects }) => {
       <Search data={projects} onSearchResults={handleSearchResults} />
 
       {selectedProjects.length > 0 && (
-        <div className='relative  text-left'>
+        <div className='relative '>
           <div className='hover:bg-gray-100 absolute top-[-40px] flex items-center gap-2 px-2 py-1 border border-gray-200 rounded-md '>
             <IoMdCheckmarkCircle size={24} className='text-[#63a27a] ' />
             <button
@@ -47,8 +47,8 @@ const Projects = ({ projects }) => {
           </div>
         </div>
       )}
-      <div className='grid grid-cols-9 gap-4 bg-gray-100 font-medium p-3 rounded-t-md text-sm '>
-        <div>#</div>
+      <div className='grid grid-cols-9 gap-4 bg-gray-200 font-medium p-3 rounded-t-md text-sm '>
+        <div className=''>Select </div>
         <div>Project #</div>
         <div>Cust Name</div>
         <div>Cust Invoice</div>
@@ -61,54 +61,60 @@ const Projects = ({ projects }) => {
       {filteredProjects.length === 0 ? (
         <p className='p-4 text-center border-x '>Oops No project found</p>
       ) : (
-        filteredProjects.map((project, index) => (
-          <div key={project.id} className='divide-y divide-gray-300 '>
-            <div className='grid grid-cols-9 gap-4 p-2 items-center border-b border-x border-gray-100 hover:bg-gray-50 text-sm '>
-              <div>
-                <label className='mr-4'>
-                  <input
-                    type='checkbox'
-                    checked={selectedProjects.includes(project.id)}
-                    onChange={() => handleCheckboxChange(project.id)}
-                    className='mr-2'
-                  />
-                </label>
-              </div>
-              <div>{project.projectNumber}</div>
-              <div>{project.clientName}</div>
-              <div>{project.customerInvoice}</div>
-              <div>{project.supplierInvoice}</div>
-              <div>{project.expected}</div>
-              <div>{project.outcome}</div>
-              {project.status === 'Completed' ? (
-                <div>
-                  <span className='border-green-500 bg-green-50 text-green-500 font-medium border rounded-full px-2 py-1 text-center text-xs'>
-                    {project.status}
-                  </span>
+        filteredProjects.map((project) => {
+          const isSelected = selectedProjects.includes(project.id);
+          return (
+            <div key={project.id} className='divide-y divide-gray-300'>
+              <div
+                className={`grid grid-cols-9 gap-4 p-2 items-center border-b border-x border-gray-200 hover:bg-gray-100 text-sm ${
+                  isSelected ? 'hover:bg-green-100 bg-green-100' : ''
+                }`}
+              >
+                <div className=''>
+                  <label>
+                    <input
+                      type='checkbox'
+                      checked={isSelected}
+                      onChange={() => handleCheckboxChange(project.id)}
+                    />
+                  </label>
                 </div>
-              ) : (
-                <div>
-                  <span className='border-orange-500 bg-orange-50 text-orange-400 font-medium border rounded-full px-2 py-1 text-center text-xs'>
-                    {project.status}
-                  </span>
-                </div>
-              )}
+                <div>{project.projectNumber}</div>
+                <div>{project.clientName}</div>
+                <div>{project.customerInvoice}</div>
+                <div>{project.supplierInvoice}</div>
+                <div>{project.expected}</div>
+                <div>{project.outcome}</div>
+                {project.status === 'Completed' ? (
+                  <div>
+                    <span className='border-green-500 bg-green-50 text-green-500 font-medium border rounded-full px-2 py-1 text-center text-xs'>
+                      {project.status}
+                    </span>
+                  </div>
+                ) : (
+                  <div>
+                    <span className='border-orange-500 bg-orange-50 text-orange-400 font-medium border rounded-full px-2 py-1 text-center text-xs'>
+                      {project.status}
+                    </span>
+                  </div>
+                )}
 
-              <div>
-                <Link
-                  to={`/projects/${project.id}`}
-                  key={project.id}
-                  className='text-blue-600 '
-                >
-                  details
-                </Link>
+                <div>
+                  <Link
+                    to={`/projects/${project.id}`}
+                    key={project.id}
+                    className='text-blue-600 '
+                  >
+                    details
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))
+          );
+        })
       )}
-      <div className='border-x border-b rounded-b-md pt-8'>
-        <div className='text-center mt-6 p-6 rounded-b bg-gray-100'>
+      <div className='border-x border-b border-gray-200 rounded-b-md pt-8'>
+        <div className='text-center mt-6 p-6 rounded-b bg-gray-200'>
           pagination
         </div>
       </div>

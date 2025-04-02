@@ -108,5 +108,27 @@
     "expected": 10000,
     "outcome": 9000,
     "status": "Completed"
+  },
+  {
+    "id": 11,
+    "projectName": "project x",
+    "projectNumber": 49994,
+    "clientName": "UniLab",
+    "customerInvoice": 20000,
+    "supplierInvoice": 10000,
+    "expected": 10000,
+    "outcome": 9000,
+    "status": "In progress"
+  },
+  {
+    "id": 12,
+    "projectName": "Tech support",
+    "projectNumber": 32134,
+    "clientName": "Afray",
+    "customerInvoice": 20000,
+    "supplierInvoice": 10000,
+    "expected": 10000,
+    "outcome": 9000,
+    "status": "Completed"
   }
 ]
