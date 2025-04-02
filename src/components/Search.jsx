@@ -48,8 +48,8 @@ export const Search = ({ data, onSearchResults }) => {
   };
 
   return (
-    <div className=''>
-      <form className='rounded-md bg-white p-6  flex flex-col justify-center items-center'>
+    <div className='pb-12'>
+      <form className='rounded-md bg-white p-6  flex flex-col  items-center'>
         <div className='mb-2 flex items-center w-2/4 relative'>
           <input
             type='text'

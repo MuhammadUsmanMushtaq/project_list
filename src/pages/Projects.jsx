@@ -1,18 +1,54 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search } from '../components/Search';
+import { IoMdCheckmarkCircle } from 'react-icons/io';
 
 const Projects = ({ projects }) => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
+  const [selectedProjects, setSelectedProjects] = useState([]);
 
   const handleSearchResults = (results) => {
     setFilteredProjects(results);
   };
 
+  const handleCheckboxChange = (id) => {
+    if (selectedProjects.includes(id)) {
+      setSelectedProjects(
+        selectedProjects.filter((projectId) => projectId !== id)
+      );
+    } else {
+      setSelectedProjects([...selectedProjects, id]);
+    }
+  };
+
+  const handleDeleteSelected = () => {
+    setFilteredProjects(
+      filteredProjects.filter(
+        (project) => !selectedProjects.includes(project.id)
+      )
+    );
+    setSelectedProjects([]);
+  };
+
   return (
-    <div className='max-w-6xl mx-auto bg-whiteshadow-md'>
+    <div className='max-w-6xl mx-auto '>
       <Search data={projects} onSearchResults={handleSearchResults} />
+
+      {selectedProjects.length > 0 && (
+        <div className='relative  text-left'>
+          <div className='hover:bg-gray-100 absolute top-[-40px] flex items-center gap-2 px-2 py-1 border border-gray-200 rounded-md '>
+            <IoMdCheckmarkCircle size={24} className='text-[#63a27a] ' />
+            <button
+              onClick={handleDeleteSelected}
+              className='font-medium text-xs'
+            >
+              Completed
+            </button>
+          </div>
+        </div>
+      )}
       <div className='grid grid-cols-9 gap-4 bg-gray-100 font-medium p-3 rounded-t-md text-sm '>
+        <div>#</div>
         <div>Project #</div>
         <div>Cust Name</div>
         <div>Cust Invoice</div>
@@ -21,14 +57,23 @@ const Projects = ({ projects }) => {
         <div>Outcome</div>
         <div>Status</div>
         <div>Details</div>
-        <div>Actions</div>
       </div>
       {filteredProjects.length === 0 ? (
         <p className='p-4 text-center border-x '>Oops No project found</p>
       ) : (
-        filteredProjects.map((project) => (
+        filteredProjects.map((project, index) => (
           <div key={project.id} className='divide-y divide-gray-300 '>
             <div className='grid grid-cols-9 gap-4 p-2 items-center border-b border-x border-gray-100 hover:bg-gray-50 text-sm '>
+              <div>
+                <label className='mr-4'>
+                  <input
+                    type='checkbox'
+                    checked={selectedProjects.includes(project.id)}
+                    onChange={() => handleCheckboxChange(project.id)}
+                    className='mr-2'
+                  />
+                </label>
+              </div>
               <div>{project.projectNumber}</div>
               <div>{project.clientName}</div>
               <div>{project.customerInvoice}</div>
@@ -58,21 +103,14 @@ const Projects = ({ projects }) => {
                   details
                 </Link>
               </div>
-              <div>
-                {project.status === 'Completed' ? (
-                  <p className='px-2 py-1'>----</p>
-                ) : (
-                  <button className='px-2 py-1 bg-[#63a27a] text-white rounded'>
-                    Done
-                  </button>
-                )}
-              </div>
             </div>
           </div>
         ))
       )}
       <div className='border-x border-b rounded-b-md pt-8'>
-        <div className='text-center mt-6 p-6 bg-gray-100'>pagination</div>
+        <div className='text-center mt-6 p-6 rounded-b bg-gray-100'>
+          pagination
+        </div>
       </div>
     </div>
   );
