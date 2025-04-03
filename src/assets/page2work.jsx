@@ -45,7 +45,7 @@ const App = () => {
 
   if (loading) {
     return (
-      <div className='flex justify-center items-center mt-16 flex-col h-screen'>
+      <div className=''>
         <p>Loading . . .</p>
       </div>
     );
@@ -56,9 +56,12 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className='flex flex-col p-6'>
       {data.map((item) => (
-        <ul key={item.id}>
+        <ul
+          className='flex gap-4 p-2 border border-gray-200 mb-2'
+          key={item.id}
+        >
           <li>{item.title}</li>
           <li>{item.id}</li>
         </ul>

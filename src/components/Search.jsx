@@ -48,17 +48,17 @@ export const Search = ({ data, onSearchResults }) => {
   };
 
   return (
-    <div className='pb-12'>
+    <div className='pb-6'>
       <form className='rounded-md bg-white p-6  flex flex-col  items-center'>
         <div className='mb-2 flex items-center w-2/4 relative'>
           <input
             type='text'
             value={searchTerm}
             onChange={handleSearchChange}
-            className='w-full rounded-md bg-gray-100 border border-gray-200 p-2'
+            className='w-full rounded-md bg-gray-100 border border-gray-400 p-3'
             placeholder='Search by customer number or customer name...'
           />
-          <FiSearch className='absolute right-2 text-gray-500' />
+          <FiSearch size={24} className='absolute right-2 text-black' />
         </div>
         <div className='flex text-sm'>
           <label className='mr-4'>

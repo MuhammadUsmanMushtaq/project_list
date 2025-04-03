@@ -12,13 +12,11 @@ const Projects = ({ projects }) => {
   };
 
   const handleCheckboxChange = (id) => {
-    if (selectedProjects.includes(id)) {
-      setSelectedProjects(
-        selectedProjects.filter((projectId) => projectId !== id)
-      );
-    } else {
-      setSelectedProjects([...selectedProjects, id]);
-    }
+    setSelectedProjects((prevSelected) =>
+      prevSelected.includes(id)
+        ? prevSelected.filter((projectId) => projectId !== id)
+        : [...prevSelected, id]
+    );
   };
 
   const handleDeleteSelected = () => {
