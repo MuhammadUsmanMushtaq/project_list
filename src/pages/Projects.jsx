@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Search } from '../components/Search';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
+import { BsChevronCompactUp, BsChevronCompactDown } from 'react-icons/bs';
 
 const Projects = ({ projects }) => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [selectedProjects, setSelectedProjects] = useState([]);
+  const [expandedProjectId, setExpandedProjectId] = useState(null);
 
   const handleSearchResults = (results) => {
     setFilteredProjects(results);
@@ -28,14 +29,18 @@ const Projects = ({ projects }) => {
     setSelectedProjects([]);
   };
 
+  const handleToggleExpand = (id) => {
+    setExpandedProjectId((prevId) => (prevId === id ? null : id));
+  };
+
   return (
-    <div className='max-w-6xl mx-auto '>
+    <div className='max-w-6xl mx-auto'>
       <Search data={projects} onSearchResults={handleSearchResults} />
 
       {selectedProjects.length > 0 && (
-        <div className='relative '>
-          <div className='hover:bg-gray-100 absolute top-[-40px] flex items-center gap-2 px-2 py-1 border border-gray-200 rounded-md '>
-            <IoMdCheckmarkCircle size={24} className='text-[#63a27a] ' />
+        <div className='relative'>
+          <div className='hover:bg-gray-100 absolute top-[-40px] flex items-center gap-2 px-2 py-1 border border-gray-200 rounded-md'>
+            <IoMdCheckmarkCircle size={24} className='text-[#63a27a]' />
             <button
               onClick={handleDeleteSelected}
               className='font-medium text-xs'
@@ -45,8 +50,9 @@ const Projects = ({ projects }) => {
           </div>
         </div>
       )}
-      <div className='grid grid-cols-9 gap-4 bg-gray-200 font-medium p-3 rounded-t-md text-sm '>
-        <div className=''>Select </div>
+
+      <div className='grid grid-cols-9 gap-4 bg-gray-200 font-medium p-3 rounded-t-md text-sm'>
+        <div>Select</div>
         <div>Project #</div>
         <div>Cust Name</div>
         <div>Cust Invoice</div>
@@ -56,11 +62,14 @@ const Projects = ({ projects }) => {
         <div>Status</div>
         <div>Details</div>
       </div>
+
       {filteredProjects.length === 0 ? (
-        <p className='p-4 text-center border-x '>Oops No project found</p>
+        <p className='p-4 text-center border-x'>Oops No project found</p>
       ) : (
         filteredProjects.map((project) => {
           const isSelected = selectedProjects.includes(project.id);
+          const isExpanded = expandedProjectId === project.id;
+
           return (
             <div key={project.id} className='divide-y divide-gray-300'>
               <div
@@ -68,7 +77,7 @@ const Projects = ({ projects }) => {
                   isSelected ? 'hover:bg-green-100 bg-green-100' : ''
                 }`}
               >
-                <div className=''>
+                <div>
                   <label>
                     <input
                       type='checkbox'
@@ -83,6 +92,7 @@ const Projects = ({ projects }) => {
                 <div>{project.supplierInvoice}</div>
                 <div>{project.expected}</div>
                 <div>{project.outcome}</div>
+
                 {project.status === 'Completed' ? (
                   <div>
                     <span className='border-green-500 bg-green-50 text-green-500 font-medium border rounded-full px-2 py-1 text-center text-xs'>
@@ -98,19 +108,64 @@ const Projects = ({ projects }) => {
                 )}
 
                 <div>
-                  <Link
-                    to={`/projects/${project.id}`}
-                    key={project.id}
-                    className='text-blue-600 '
+                  <button
+                    onClick={() => handleToggleExpand(project.id)}
+                    className='text-blue-600 flex items-center gap-1'
                   >
-                    details
-                  </Link>
+                    {isExpanded ? (
+                      <div className='flex items-center gap-2'>
+                        <span>close</span>
+                        <BsChevronCompactUp size={16} />
+                      </div>
+                    ) : (
+                      <div className='flex items-center gap-2'>
+                        <span>view</span>
+                        <BsChevronCompactDown size={16} />
+                      </div>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {/* Collapsible section with smooth transition */}
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out max-h-0 ${
+                  isExpanded ? 'max-h-screen opacity-100' : 'opacity-0'
+                }`}
+              >
+                <div className='flex justify-around gap-2 text-sm  p-12   bg-gray-50 border '>
+                  <div className=''>
+                    Project Number
+                    <div>{project.projectNumber}</div>
+                  </div>
+                  <div className=''>
+                    Customer Name
+                    <div>{project.clientName}</div>
+                  </div>
+                  <div>
+                    Start project date
+                    <div>2025-01-12</div>
+                  </div>
+                  <div>
+                    End project date
+                    <div>2025-02-23</div>
+                  </div>
+                  <div>
+                    Outcome<div>{project.outcome}</div>
+                  </div>
+                  <div>
+                    Outcome<div>{project.outcome}</div>
+                  </div>
+                  <div>
+                    Outcome<div>{project.outcome}</div>
+                  </div>
                 </div>
               </div>
             </div>
           );
         })
       )}
+
       <div className='border-x border-b border-gray-200 rounded-b-md pt-8'>
         <div className='text-center mt-6 p-6 rounded-b bg-gray-200'>
           pagination
