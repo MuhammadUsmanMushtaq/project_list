@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('src/projects.json');
+        const response = await axios.get('projects.json');
         setProjects(response.data);
       } catch (err) {
         setError('Error fetching data. Please try again later.');
