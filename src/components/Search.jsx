@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import { MdCancelPresentation } from 'react-icons/md';
 
 export const Search = ({ data, onSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -102,7 +103,7 @@ export const Search = ({ data, onSearchResults }) => {
         </div>
 
         {/* Date Range Filters */}
-        <div className='w-full justify-between flex items-center text-sm border-[1px] border-gray-400  px-4 py-2 rounded-md'>
+        <div className='w-full justify-between flex items-center text-sm border border-gray-400  px-4 py-2 rounded-md'>
           <div className='flex gap-4'>
             <label className=''>
               <input
@@ -154,7 +155,7 @@ export const Search = ({ data, onSearchResults }) => {
             <button
               type='button'
               onClick={handleClearDateFilter}
-              className='text-xs text-blue-500 mt-2'
+              className='text-xs bg-[#63a27a] hover:shadow-md text-white px-4 rounded-md'
             >
               Clear
             </button>
