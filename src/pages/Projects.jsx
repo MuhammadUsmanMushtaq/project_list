@@ -51,12 +51,13 @@ const Projects = ({ projects }) => {
         </div>
       )}
 
-      <div className='grid grid-cols-9 gap-4 bg-gray-200 font-medium p-3 rounded-t-md text-sm'>
-        <div>Select</div>
-        <div>Project #</div>
+      <div className='grid grid-cols-[auto,repeat(9,_1fr)] gap-2 bg-gray-200 font-medium p-3 rounded-t-md text-sm '>
+        <div className='w-12'>#</div>
+        <div>Project nr</div>
+        <div>Start date</div>
         <div>Cust Name</div>
         <div>Cust Invoice</div>
-        <div>Supp Invoice</div>
+        <div>Sup Invoice</div>
         <div>Expected</div>
         <div>Outcome</div>
         <div>Status</div>
@@ -73,11 +74,11 @@ const Projects = ({ projects }) => {
           return (
             <div key={project.id} className='divide-y divide-gray-300'>
               <div
-                className={`grid grid-cols-9 gap-4 p-2 items-center border-b border-x border-gray-200 hover:bg-gray-100 text-sm ${
+                className={`grid grid-cols-[auto,repeat(9,_1fr)] gap-2 p-2 items-center border-b border-x border-gray-200 hover:bg-gray-100 text-sm ${
                   isSelected ? 'hover:bg-green-100 bg-green-100' : ''
                 }`}
               >
-                <div>
+                <div className='w-12'>
                   <label>
                     <input
                       type='checkbox'
@@ -87,6 +88,7 @@ const Projects = ({ projects }) => {
                   </label>
                 </div>
                 <div>{project.projectNumber}</div>
+                <div>{project.startDate}</div>
                 <div>{project.clientName}</div>
                 <div>{project.customerInvoice}</div>
                 <div>{project.supplierInvoice}</div>
@@ -113,7 +115,7 @@ const Projects = ({ projects }) => {
                     className='text-blue-600 flex items-center gap-1'
                   >
                     {isExpanded ? (
-                      <div className='flex items-center gap-2'>
+                      <div className='flex items-center  gap-2'>
                         <span>close</span>
                         <BsChevronCompactUp size={16} />
                       </div>
