@@ -88,21 +88,21 @@ export const Search = ({ data, onSearchResults }) => {
   };
 
   return (
-    <div className='mb-12 p-8 rounded-md shadow-md border'>
+    <div className='mb-12 p-8  rounded-md shadow-md border'>
       <form className='rounded-md bg-white flex flex-col items-center'>
-        <div className='flex items-center w-full relative'>
+        <div className='flex items-center w-full relative '>
           <input
             type='text'
             value={searchTerm}
             onChange={handleSearchChange}
-            className='mb-4 w-full rounded-md bg-gray-100 border border-gray-400 p-3'
+            className='mb-2 bg-gray-100 w-full rounded-md border border-gray-400 p-3'
             placeholder='Search by customer number or customer name...'
           />
           <FiSearch size={24} className='absolute right-3 top-3 text-black' />
         </div>
 
         {/* Date Range Filters */}
-        <div className='w-full justify-between flex items-center text-sm border-[1px] px-4 py-2 rounded-md'>
+        <div className='w-full justify-between flex items-center text-sm border-[1px] border-gray-400  px-4 py-2 rounded-md'>
           <div className='flex gap-4'>
             <label className=''>
               <input
@@ -156,7 +156,7 @@ export const Search = ({ data, onSearchResults }) => {
               onClick={handleClearDateFilter}
               className='text-xs text-blue-500 mt-2'
             >
-              Clear Date Filter
+              Clear
             </button>
           </div>
         </div>
