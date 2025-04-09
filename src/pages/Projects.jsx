@@ -51,7 +51,7 @@ const Projects = ({ projects }) => {
         </div>
       )}
 
-      <div className='grid grid-cols-[auto,repeat(9,_1fr)] gap-2 bg-gray-200 font-medium p-3 rounded-t-md text-sm '>
+      <div className='text-center grid grid-cols-[auto,repeat(9,_1fr)] gap-2 bg-gray-200 font-medium p-3 rounded-t-md text-sm '>
         <div className='w-12'>#</div>
         <div>Project nr</div>
         <div>Start date</div>
@@ -74,7 +74,7 @@ const Projects = ({ projects }) => {
           return (
             <div key={project.id} className='divide-y divide-gray-300'>
               <div
-                className={`grid grid-cols-[auto,repeat(9,_1fr)] gap-2 p-2 items-center border-b border-x border-gray-200 hover:bg-gray-100 text-sm ${
+                className={`text-center grid grid-cols-[auto,repeat(9,_1fr)] gap-2 p-2 items-center border-b border-x border-gray-200 hover:bg-gray-100 text-sm ${
                   isSelected ? 'hover:bg-green-100 bg-green-100' : ''
                 }`}
               >
@@ -109,7 +109,7 @@ const Projects = ({ projects }) => {
                   </div>
                 )}
 
-                <div>
+                <div className='ml-6'>
                   <button
                     onClick={() => handleToggleExpand(project.id)}
                     className='text-blue-600 flex items-center gap-1'
