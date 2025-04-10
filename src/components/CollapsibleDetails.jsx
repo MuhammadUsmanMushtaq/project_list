@@ -5,11 +5,11 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
   return (
     <div
       className={`overflow-hidden transition-all duration-500 ease-in-out max-h-0 ${
-        isExpanded ? 'max-h-screen opacity-100' : 'opacity-0'
+        isExpanded ? 'max-h-screen opacity-100 ' : 'opacity-0'
       }`}
     >
       <div className='text-sm p-4 bg-gray-50 border'>
-        <div>
+        <div className=' bg-white rounded-md p-2 border'>
           <h2 className='text-2xl'>{project.projectName}</h2>
           <div className='flex items-center gap-2 py-2 '>
             <FaRegBuilding color={'green'} size={24} />
@@ -19,11 +19,13 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
 
         <div className='flex justify-between pt-4'>
           <div className='w-80'>
-            <h2 className=' bg-white p-2 rounded-t-md font-semibold py-2'>
+            <h2 className='border-t border-x bg-white p-2 rounded-t-md font-semibold py-2'>
               Project description
             </h2>
-            <p className='  bg-white p-2 rounded-b-md'>{project.description}</p>
-            <div className='grid grid-cols-2 mt-2 gap-1  bg-white p-2 rounded-md text-xs'>
+            <p className=' border-b border-x bg-white p-2 rounded-b-md'>
+              {project.description}
+            </p>
+            <div className='grid grid-cols-2 mt-2 gap-1  bg-white p-2 rounded-md text-xs border'>
               <p className='font-semibold'>Contact person:</p>
               <p className='m-0'>Jon Hill</p>
 
@@ -53,9 +55,9 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
           </div>
 
           <div className='flex flex-col'>
-            <div className='text-sm mt-2 space-y-1 bg-white p-2 rounded-md'>
+            <div className=' space-y-1 bg-white p-2 rounded-md border'>
               {/* Header Row */}
-              <p className='font-semibold'>Customer Invoice</p>
+              <h2 className='text-sm font-semibold py-1'>Customer invoice</h2>
               <div className=' bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4 font-semibold '>
                 <p>Date</p>
                 <p>Invoice</p>
@@ -87,9 +89,9 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 <p className='bg-gray-100 p-1'>{project.customerInvoice * 2}</p>
               </div>
             </div>
-            <div className='bg-white rounded-md p-2 text-sm mt-2 space-y-1'>
+            <div className='bg-white rounded-md p-2 text-sm mt-2 space-y-1 border'>
               {/* Header Row */}
-              <p className='font-semibold'>Supplier Invoice</p>
+              <h2 className='py-1 font-semibold'>Supplier invoice</h2>
               <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4 font-semibold'>
                 <p>Date</p>
                 <p>Invoice</p>
@@ -121,7 +123,7 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 <p className='bg-gray-100 p-1'>{project.supplierInvoice * 2}</p>
               </div>
             </div>
-            <div className='text-right p-2 text-xl font-semibold  '>
+            <div className='text-[#63a27a] text-right p-2 text-xl font-semibold  '>
               <div className='inline-block border-y p-2'>
                 Total Revenue :{' '}
                 {(project.customerInvoice - project.supplierInvoice) * 2} SEK
