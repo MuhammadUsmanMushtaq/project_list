@@ -91,10 +91,10 @@ const Projects = ({ projects }) => {
                 <div>{project.projectNumber}</div>
                 <div>{project.startDate}</div>
                 <div>{project.clientName}</div>
-                <div>{project.customerInvoice}</div>
-                <div>{project.supplierInvoice}</div>
-                <div>{project.expected}</div>
-                <div>{project.outcome}</div>
+                <div>{project.customerInvoice * 2}</div>
+                <div>{project.supplierInvoice * 2}</div>
+                <div>{project.expected * 2}</div>
+                <div>{project.outcome * 2}</div>
 
                 {project.status === 'Completed' ? (
                   <div>

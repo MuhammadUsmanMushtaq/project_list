@@ -12,20 +12,18 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
         <div>
           <h2 className='text-2xl'>{project.projectName}</h2>
           <div className='flex items-center gap-2 py-2 '>
-            <FaRegBuilding size={24} />
+            <FaRegBuilding color={'green'} size={24} />
             <p className='font-bold'>{project.clientName}</p>
           </div>
         </div>
 
         <div className='flex justify-between pt-4'>
           <div className='w-80'>
-            <h2 className=' bg-white p-2 rounded-md font-semibold py-2'>
+            <h2 className=' bg-white p-2 rounded-t-md font-semibold py-2'>
               Project description
             </h2>
-            <p className='  bg-white p-2 rounded-md m-0'>
-              {project.description}
-            </p>
-            <div className='grid grid-cols-2 mt-4  bg-white p-2 rounded-md text-xs'>
+            <p className='  bg-white p-2 rounded-b-md'>{project.description}</p>
+            <div className='grid grid-cols-2 mt-2 gap-1  bg-white p-2 rounded-md text-xs'>
               <p className='font-semibold'>Contact person:</p>
               <p className='m-0'>Jon Hill</p>
 
@@ -35,16 +33,30 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
               <p className='font-semibold'>Mobile:</p>
               <p>0723000000</p>
 
-              <p className='font-semibold'>Order ID:</p>
-              <p>987654</p>
+              <p className='font-semibold'>Project Number:</p>
+              <p>{project.projectNumber}</p>
+              <p className='font-semibold'>Start date:</p>
+              <p>{project.startDate}</p>
+              <p className='font-semibold'>End date:</p>
+              <p>{project.endDate || '-'}</p>
+              <p className='font-semibold '>Status:</p>
+              <p
+                className={`${
+                  project.status === 'Completed'
+                    ? 'text-green-500'
+                    : 'text-orange-500'
+                }`}
+              >
+                {project.status}
+              </p>
             </div>
           </div>
 
           <div className='flex flex-col'>
-            <div className='text-sm mt-2 space-y-1'>
+            <div className='text-sm mt-2 space-y-1 bg-white p-2 rounded-md'>
               {/* Header Row */}
               <p className='font-semibold'>Customer Invoice</p>
-              <div className=' bg-white p-1 text-xs grid grid-cols-4 gap-4 font-semibold '>
+              <div className=' bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4 font-semibold '>
                 <p>Date</p>
                 <p>Invoice</p>
                 <p>Status</p>
@@ -52,33 +64,33 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
               </div>
 
               {/* Data Row 1 */}
-              <div className='bg-white p-1 text-xs grid grid-cols-4 gap-4'>
+              <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4'>
                 <p className='m-0'>2024-01-23</p>
                 <p className='m-0 text-blue-500'>00001se</p>
                 <p className='m-0'>Paid</p>
-                <p className='m-0'>200000</p>
+                <p className='m-0'>{project.customerInvoice}</p>
               </div>
 
               {/* Data Row 2 */}
-              <div className='bg-white p-1 text-xs grid grid-cols-4 gap-4'>
+              <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4'>
                 <p className='m-0'>2024-01-23</p>
                 <p className='m-0 text-blue-500'>00001se</p>
                 <p className='m-0'>Paid</p>
-                <p className='m-0'>200000</p>
+                <p className='m-0'>{project.customerInvoice}</p>
               </div>
 
               {/* Total Row */}
               <div className='grid grid-cols-4 font-semibold'>
                 <p></p>
                 <p></p>
-                <p className='bg-white p-1'>Total</p>
-                <p className='bg-white p-1'>200000</p>
+                <p className='bg-gray-100 p-1'>Total</p>
+                <p className='bg-gray-100 p-1'>{project.customerInvoice * 2}</p>
               </div>
             </div>
-            <div className='text-sm mt-2 space-y-1'>
+            <div className='bg-white rounded-md p-2 text-sm mt-2 space-y-1'>
               {/* Header Row */}
               <p className='font-semibold'>Supplier Invoice</p>
-              <div className='bg-white p-1 text-xs grid grid-cols-4 gap-4 font-semibold'>
+              <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4 font-semibold'>
                 <p>Date</p>
                 <p>Invoice</p>
                 <p>Status</p>
@@ -86,27 +98,33 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
               </div>
 
               {/* Data Row 1 */}
-              <div className='bg-white p-1 text-xs grid grid-cols-4 gap-4'>
+              <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4'>
                 <p className='m-0'>2024-01-23</p>
                 <p className='m-0 text-blue-500'>00001se</p>
                 <p className='m-0'>Paid</p>
-                <p className='m-0'>200000</p>
+                <p className='m-0'>{project.supplierInvoice}</p>
               </div>
 
               {/* Data Row 2 */}
-              <div className='bg-white p-1 text-xs grid grid-cols-4 gap-4'>
+              <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4'>
                 <p className='m-0'>2024-01-23</p>
                 <p className='m-0 text-blue-500'>00001se</p>
                 <p className='m-0'>Paid</p>
-                <p className='m-0'>200000</p>
+                <p className='m-0'>{project.supplierInvoice}</p>
               </div>
 
               {/* Total Row */}
               <div className='grid grid-cols-4 font-semibold'>
                 <p></p>
                 <p></p>
-                <p className='bg-white p-1'>Total</p>
-                <p className='bg-white p-1'>200000</p>
+                <p className='bg-gray-100 p-1'>Total</p>
+                <p className='bg-gray-100 p-1'>{project.supplierInvoice * 2}</p>
+              </div>
+            </div>
+            <div className='text-right p-2 text-xl font-semibold  '>
+              <div className='inline-block border-y p-2'>
+                Total Revenue :{' '}
+                {(project.customerInvoice - project.supplierInvoice) * 2} SEK
               </div>
             </div>
           </div>
