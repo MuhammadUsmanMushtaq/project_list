@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Search } from '../components/Search';
+import CollapsibleDetails from '../components/CollapsibleDetails';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 import { BsChevronCompactUp, BsChevronCompactDown } from 'react-icons/bs';
 
@@ -52,7 +53,7 @@ const Projects = ({ projects }) => {
       )}
 
       <div className='text-center grid grid-cols-[auto,repeat(9,_1fr)] gap-2 bg-gray-200 font-medium p-3 rounded-t-md text-sm '>
-        <div className='w-12'>#</div>
+        <div className='w-8'>#</div>
         <div>Project nr</div>
         <div>Start date</div>
         <div>Cust Name</div>
@@ -78,7 +79,7 @@ const Projects = ({ projects }) => {
                   isSelected ? 'hover:bg-green-100 bg-green-100' : ''
                 }`}
               >
-                <div className='w-12'>
+                <div className='w-8'>
                   <label>
                     <input
                       type='checkbox'
@@ -109,7 +110,7 @@ const Projects = ({ projects }) => {
                   </div>
                 )}
 
-                <div className='ml-6'>
+                <div className='ml-8'>
                   <button
                     onClick={() => handleToggleExpand(project.id)}
                     className='text-blue-600 flex items-center gap-1'
@@ -130,39 +131,7 @@ const Projects = ({ projects }) => {
               </div>
 
               {/* Collapsible section with smooth transition */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out max-h-0 ${
-                  isExpanded ? 'max-h-screen opacity-100' : 'opacity-0'
-                }`}
-              >
-                <div className='flex justify-around gap-2 text-sm  p-12   bg-gray-50 border '>
-                  <div className=''>
-                    Project Number
-                    <div>{project.projectNumber}</div>
-                  </div>
-                  <div className=''>
-                    Customer Name
-                    <div>{project.clientName}</div>
-                  </div>
-                  <div>
-                    Start project date
-                    <div>2025-01-12</div>
-                  </div>
-                  <div>
-                    End project date
-                    <div>2025-02-23</div>
-                  </div>
-                  <div>
-                    Outcome<div>{project.outcome}</div>
-                  </div>
-                  <div>
-                    Outcome<div>{project.outcome}</div>
-                  </div>
-                  <div>
-                    Outcome<div>{project.outcome}</div>
-                  </div>
-                </div>
-              </div>
+              <CollapsibleDetails project={project} isExpanded={isExpanded} />
             </div>
           );
         })

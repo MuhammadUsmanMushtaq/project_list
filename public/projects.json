@@ -10,7 +10,8 @@
     "supplierInvoice": 10000,
     "expected": 5000,
     "outcome": 4000,
-    "status": "Completed"
+    "status": "Completed",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
     "supplierInvoice": 10000,
     "expected": 6000,
     "outcome": 9,
-    "status": "In progress"
+    "status": "In progress",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@
     "supplierInvoice": 8000,
     "expected": 4000,
     "outcome": 4000,
-    "status": "In progress"
+    "status": "In progress",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 4,
@@ -49,7 +52,8 @@
     "supplierInvoice": 10000,
     "expected": 8000,
     "outcome": 7000,
-    "status": "In progress"
+    "status": "In progress",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@
     "supplierInvoice": 10000,
     "expected": 10000,
     "outcome": 9000,
-    "status": "Completed"
+    "status": "Completed",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 6,
@@ -75,12 +80,13 @@
     "supplierInvoice": 15000,
     "expected": 10000,
     "outcome": 8000,
-    "status": "In progress"
+    "status": "In progress",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 7,
     "projectName": "Web Hosting",
-    "projectNumber": 424234,
+    "projectNumber": 42424,
     "startDate": "2024-01-12",
     "endDate": "2025-01-28",
     "clientName": "Sara",
@@ -88,12 +94,13 @@
     "supplierInvoice": 10000,
     "expected": 10000,
     "outcome": 7000,
-    "status": "In progress"
+    "status": "In progress",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 8,
     "projectName": "Server Installation",
-    "projectNumber": 993234,
+    "projectNumber": 99324,
     "startDate": "2025-01-23",
     "endDate": "2025-03-21",
     "clientName": "MG Tech",
@@ -101,7 +108,8 @@
     "supplierInvoice": 10000,
     "expected": 10000,
     "outcome": 9000,
-    "status": "In progress"
+    "status": "In progress",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 9,
@@ -114,7 +122,8 @@
     "supplierInvoice": 10000,
     "expected": 10000,
     "outcome": 9000,
-    "status": "Completed"
+    "status": "Completed",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 10,
@@ -127,7 +136,8 @@
     "supplierInvoice": 10000,
     "expected": 10000,
     "outcome": 9000,
-    "status": "Completed"
+    "status": "Completed",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 11,
@@ -140,7 +150,8 @@
     "supplierInvoice": 10000,
     "expected": 10000,
     "outcome": 9000,
-    "status": "In progress"
+    "status": "In progress",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   },
   {
     "id": 12,
@@ -153,6 +164,7 @@
     "supplierInvoice": 10000,
     "expected": 10000,
     "outcome": 9000,
-    "status": "Completed"
+    "status": "Completed",
+    "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
   }
 ]
