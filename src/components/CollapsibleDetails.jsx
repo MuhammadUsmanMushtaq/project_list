@@ -8,7 +8,7 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
         isExpanded ? 'max-h-screen opacity-100 ' : 'opacity-0'
       }`}
     >
-      <div className='text-sm p-4 bg-gray-50 border'>
+      <div className='text-sm p-2 bg-gray-50 border'>
         <div className=' bg-white rounded-md p-2 border'>
           <h2 className='text-2xl'>{project.projectName}</h2>
           <div className='flex items-center gap-2 py-2 '>
@@ -17,7 +17,7 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
           </div>
         </div>
 
-        <div className='flex justify-between pt-4'>
+        <div className='flex justify-between pt-2'>
           <div className='w-80'>
             <h2 className='border-t border-x bg-white p-2 rounded-t-md font-semibold py-2'>
               Project description
@@ -54,7 +54,7 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
             </div>
           </div>
 
-          <div className='flex flex-col'>
+          <div className=''>
             <div className=' space-y-1 bg-white p-2 rounded-md border'>
               {/* Header Row */}
               <h2 className='text-sm font-semibold py-1'>Customer invoice</h2>
