@@ -17,15 +17,9 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
           </div>
         </div>
 
-        <div className='flex justify-between pt-2'>
-          <div className='w-80'>
-            <h2 className='border-t border-x bg-white p-2 rounded-t-md font-semibold py-2'>
-              Project description
-            </h2>
-            <p className=' border-b border-x bg-white p-2 rounded-b-md'>
-              {project.description}
-            </p>
-            <div className='grid grid-cols-2 mt-2 gap-1  bg-white p-2 rounded-md text-xs border'>
+        <div className=''>
+          <div className='flex justify-between pt-2 '>
+            <div className='w-80 grid grid-cols-2  gap-1  bg-white p-2 rounded-md text-xs border'>
               <p className='font-semibold'>Contact person:</p>
               <p className='m-0'>Jon Hill</p>
 
@@ -52,9 +46,7 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 {project.status}
               </p>
             </div>
-          </div>
 
-          <div className=''>
             <div className=' space-y-1 bg-white p-2 rounded-md border'>
               {/* Header Row */}
               <h2 className='text-sm font-semibold py-1'>Customer invoice</h2>
@@ -89,7 +81,8 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 <p className='bg-gray-100 p-1'>{project.customerInvoice * 2}</p>
               </div>
             </div>
-            <div className='bg-white rounded-md p-2 text-sm mt-2 space-y-1 border'>
+
+            <div className='space-y-1 bg-white rounded-md p-2 border'>
               {/* Header Row */}
               <h2 className='py-1 font-semibold'>Supplier invoice</h2>
               <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4 font-semibold'>
@@ -123,11 +116,12 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 <p className='bg-gray-100 p-1'>{project.supplierInvoice * 2}</p>
               </div>
             </div>
-            <div className='text-[#63a27a] text-right p-2 text-xl font-semibold  '>
-              <div className='inline-block border-y p-2'>
-                Total Revenue :{' '}
-                {(project.customerInvoice - project.supplierInvoice) * 2} SEK
-              </div>
+          </div>
+
+          <div className='text-[#63a27a] text-right py-4 text-xl font-semibold  '>
+            <div className='inline-block border-b border-4 p-2 border-[#63a27a] '>
+              Total Revenue :{' '}
+              {(project.customerInvoice - project.supplierInvoice) * 2} SEK
             </div>
           </div>
         </div>
