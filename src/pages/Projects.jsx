@@ -41,7 +41,7 @@ const Projects = ({ projects }) => {
       {selectedProjects.length > 0 && (
         <div className='relative'>
           <div className='hover:bg-gray-100 absolute top-[-40px] flex items-center gap-2 px-2 py-1 border border-gray-200 rounded-md'>
-            <IoMdCheckmarkCircle size={24} className='text-[#63a27a]' />
+            <IoMdCheckmarkCircle size={24} className='text-green-500' />
             <button
               onClick={handleDeleteSelected}
               className='font-medium text-xs'
@@ -76,7 +76,7 @@ const Projects = ({ projects }) => {
             <div key={project.id} className='divide-y divide-gray-300'>
               <div
                 className={`text-center grid grid-cols-[auto,repeat(9,_1fr)] gap-2 p-2 items-center border-b border-x border-gray-200 hover:bg-gray-100 text-sm ${
-                  isSelected ? 'hover:bg-green-100 bg-green-100' : ''
+                  isSelected ? ' bg-blue-100' : ''
                 }`}
               >
                 <div className='w-8'>

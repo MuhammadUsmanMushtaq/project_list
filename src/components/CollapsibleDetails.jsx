@@ -12,7 +12,7 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
         <div className=' bg-white rounded-md p-2 border'>
           <h2 className='text-2xl'>{project.projectName}</h2>
           <div className='flex items-center gap-2 py-2 '>
-            <FaRegBuilding color={'green'} size={24} />
+            <FaRegBuilding color={'blue'} size={24} />
             <p className='font-bold'>{project.clientName}</p>
           </div>
         </div>

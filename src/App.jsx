@@ -27,7 +27,7 @@ const App = () => {
   if (loading) {
     return (
       <div className='flex justify-center items-center mt-16 flex-col h-screen'>
-        <BsArrowRepeat className='animate-spin text-[#63a27a]' size={64} />
+        <BsArrowRepeat className='animate-spin text-blue-400' size={64} />
         <p> Loading . . .</p>
       </div>
     );
