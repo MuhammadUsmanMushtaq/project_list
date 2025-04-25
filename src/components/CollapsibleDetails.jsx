@@ -48,7 +48,6 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
             </div>
 
             <div className=' space-y-1 bg-white p-2 rounded-md border'>
-              {/* Header Row */}
               <h2 className='text-sm font-semibold py-1'>Customer invoice</h2>
               <div className=' bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4 font-semibold '>
                 <p>Date</p>
@@ -57,7 +56,6 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 <p>Amount</p>
               </div>
 
-              {/* Data Row 1 */}
               <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4'>
                 <p className='m-0'>2024-01-23</p>
                 <p className='m-0 text-blue-500'>00001se</p>
@@ -65,7 +63,6 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 <p className='m-0'>{project.customerInvoice}</p>
               </div>
 
-              {/* Data Row 2 */}
               <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4'>
                 <p className='m-0'>2024-01-23</p>
                 <p className='m-0 text-blue-500'>00001se</p>
@@ -73,7 +70,6 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 <p className='m-0'>{project.customerInvoice}</p>
               </div>
 
-              {/* Total Row */}
               <div className='grid grid-cols-4 font-semibold'>
                 <p></p>
                 <p></p>
@@ -83,7 +79,6 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
             </div>
 
             <div className='space-y-1 bg-white rounded-md p-2 border'>
-              {/* Header Row */}
               <h2 className='py-1 font-semibold'>Supplier invoice</h2>
               <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4 font-semibold'>
                 <p>Date</p>
@@ -92,7 +87,6 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 <p>Amount</p>
               </div>
 
-              {/* Data Row 1 */}
               <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4'>
                 <p className='m-0'>2024-01-23</p>
                 <p className='m-0 text-blue-500'>00001se</p>
@@ -100,7 +94,6 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 <p className='m-0'>{project.supplierInvoice}</p>
               </div>
 
-              {/* Data Row 2 */}
               <div className='bg-gray-100 p-1 text-xs grid grid-cols-4 gap-4'>
                 <p className='m-0'>2024-01-23</p>
                 <p className='m-0 text-blue-500'>00001se</p>
@@ -108,7 +101,6 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
                 <p className='m-0'>{project.supplierInvoice}</p>
               </div>
 
-              {/* Total Row */}
               <div className='grid grid-cols-4 font-semibold'>
                 <p></p>
                 <p></p>
@@ -118,8 +110,8 @@ const CollapsibleDetails = ({ project, isExpanded }) => {
             </div>
           </div>
 
-          <div className='text-[#63a27a] text-right py-4 text-xl font-semibold  '>
-            <div className='inline-block border-b border-4 p-2 border-[#63a27a] '>
+          <div className='text-blue-400 text-right py-4 text-xl font-semibold  '>
+            <div className='inline-block border-b border-4 p-2 border-blue-400 '>
               Total Revenue :{' '}
               {(project.customerInvoice - project.supplierInvoice) * 2} SEK
             </div>

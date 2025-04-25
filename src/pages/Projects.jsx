@@ -130,7 +130,6 @@ const Projects = ({ projects }) => {
                 </div>
               </div>
 
-              {/* Collapsible section with smooth transition */}
               <CollapsibleDetails project={project} isExpanded={isExpanded} />
             </div>
           );

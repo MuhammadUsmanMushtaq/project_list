@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Projects from './pages/Projects';
-import ProjectDetails from './pages/ProjectDetails';
 import Layout from './components/Layout';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { BsArrowRepeat } from 'react-icons/bs';
 import axios from 'axios';
 
@@ -40,17 +38,9 @@ const App = () => {
   }
 
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path='/' element={<Projects projects={projects} />} />
-          <Route
-            path='/projects/:id'
-            element={<ProjectDetails projects={projects} />}
-          />
-        </Routes>
-      </Layout>
-    </Router>
+    <Layout>
+      <Projects projects={projects} />
+    </Layout>
   );
 };
 

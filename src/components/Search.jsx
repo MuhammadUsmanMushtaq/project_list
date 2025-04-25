@@ -80,7 +80,6 @@ export const Search = ({ data, onSearchResults }) => {
     onSearchResults(filteredData);
   };
 
-  // Trigger filter whenever something changes
   useEffect(() => {
     filterData(searchTerm, isCompleted, isInprogress, startDate, endDate);
   }, [searchTerm, isCompleted, isInprogress, startDate, endDate]);
@@ -88,20 +87,18 @@ export const Search = ({ data, onSearchResults }) => {
   return (
     <div className='mb-12 p-8 rounded-md shadow-md border'>
       <form className='rounded-md bg-white flex flex-col items-center'>
-        {/* Search input */}
         <div className='flex items-center w-full relative'>
           <input
             type='text'
             value={searchTerm}
             onChange={handleSearchChange}
-            className='mb-2 bg-gray-100 w-full rounded-md border border-gray-400 p-3'
+            className='mb-2 bg-gray-100 w-full rounded-md border border-gray-200 p-3'
             placeholder='Search by customer number or customer name...'
           />
           <FiSearch size={24} className='absolute right-3 top-3 text-black' />
         </div>
 
-        {/* Filters */}
-        <div className='w-full justify-between flex items-center text-sm border border-gray-400 px-4 py-2 rounded-md'>
+        <div className='w-full justify-between flex items-center text-sm border border-gray-200 px-4 py-2 rounded-md'>
           <div className='flex gap-4'>
             <label>
               <input
@@ -149,7 +146,7 @@ export const Search = ({ data, onSearchResults }) => {
             <button
               type='button'
               onClick={handleClearDateFilter}
-              className='text-xs bg-[#63a27a] hover:shadow-md text-white px-4 rounded-md'
+              className='text-xs bg-blue-400 hover:bg-blue-500 hover:shadow-md text-white px-4 rounded-md'
             >
               Clear
             </button>

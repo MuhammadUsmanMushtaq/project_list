@@ -6,9 +6,8 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <main className='p-4 '>{children}</main>
-      <footer className='flex flex-col text-sm text-center border-t p-2 '>
-        <span>ALL RIGHTS RESERVED</span>
-        <span>NOVO IT</span>
+      <footer className='flex flex-col text-sm text-center border-t p-8 bg-blue-400 text-white'>
+        <span>MUHAMMAD USMAN</span>
       </footer>
     </>
   );
