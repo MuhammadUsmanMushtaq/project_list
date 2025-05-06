@@ -4,7 +4,7 @@ import { FiSearch } from 'react-icons/fi';
 export const Search = ({ data, onSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isCompleted, setIsCompleted] = useState(false);
-  const [isInprogress, setIsInprogress] = useState(true);
+  const [isInprogress, setIsInprogress] = useState(false);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 

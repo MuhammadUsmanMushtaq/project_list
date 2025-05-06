@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search } from '../components/Search';
 import CollapsibleDetails from '../components/CollapsibleDetails';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 import { BsChevronCompactUp, BsChevronCompactDown } from 'react-icons/bs';
 
 const Projects = ({ projects }) => {
-  const [filteredProjects, setFilteredProjects] = useState(projects);
+  const [filteredProjects, setFilteredProjects] = useState([]);
   const [selectedProjects, setSelectedProjects] = useState([]);
   const [expandedProjectId, setExpandedProjectId] = useState(null);
 
+  useEffect(() => {
+    const sorted = [...projects].sort(
+      (a, b) => new Date(a.startDate) - new Date(b.startDate)
+    );
+    setFilteredProjects(sorted);
+  }, [projects]);
+
   const handleSearchResults = (results) => {
-    setFilteredProjects(results);
+    const sortedResults = [...results].sort(
+      (a, b) => new Date(a.startDate) - new Date(b.startDate)
+    );
+    setFilteredProjects(sortedResults);
   };
 
   const handleCheckboxChange = (id) => {
@@ -66,22 +76,22 @@ const Projects = ({ projects }) => {
       </div>
 
       {filteredProjects.length === 0 ? (
-        <p className='p-4 text-center border-x'>Oops No project found</p>
+        <p className='p-4 text-center border-x'>Oops! No project found</p>
       ) : (
-        filteredProjects.map((project) => {
+        filteredProjects.map((project, index) => {
           const isSelected = selectedProjects.includes(project.id);
           const isExpanded = expandedProjectId === project.id;
 
           return (
             <div key={project.id} className='divide-y divide-gray-300'>
               <div
-                className={`text-center grid grid-cols-[auto,repeat(9,_1fr)] gap-2 p-2 items-center border-b border-x border-gray-200 hover:bg-gray-100 text-sm
-                  ${
-                    isExpanded
-                      ? 'border border-blue-600'
-                      : 'border-t border-gray-200'
-                  }
-                  ${isSelected ? ' bg-blue-100' : 'hover:bg-gray-50'}`}
+                className={`text-center grid grid-cols-[auto,repeat(9,_1fr)] gap-2 p-2 items-center text-sm
+                ${
+                  isExpanded
+                    ? 'border border-blue-600'
+                    : 'border-b border-x border-t border-gray-200'
+                }
+                ${isSelected ? 'bg-blue-100' : 'hover:bg-gray-50'}`}
               >
                 <div className='w-8'>
                   <label>
@@ -100,19 +110,17 @@ const Projects = ({ projects }) => {
                 <div>{project.expected * 2}</div>
                 <div>{project.outcome * 2}</div>
 
-                {project.status === 'Completed' ? (
-                  <div>
-                    <span className='border-green-500 bg-green-50 text-green-500 font-medium border rounded-full px-2 py-1 text-center text-xs'>
-                      {project.status}
-                    </span>
-                  </div>
-                ) : (
-                  <div>
-                    <span className='border-orange-500 bg-orange-50 text-orange-400 font-medium border rounded-full px-2 py-1 text-center text-xs'>
-                      {project.status}
-                    </span>
-                  </div>
-                )}
+                <div>
+                  <span
+                    className={`border rounded-full px-2 py-1 text-center text-xs font-medium ${
+                      project.status === 'Completed'
+                        ? 'border-green-500 bg-green-50 text-green-500'
+                        : 'border-orange-500 bg-orange-50 text-orange-400'
+                    }`}
+                  >
+                    {project.status}
+                  </span>
+                </div>
 
                 <div className='ml-8'>
                   <button
@@ -120,7 +128,7 @@ const Projects = ({ projects }) => {
                     className='text-blue-600 flex items-center gap-1'
                   >
                     {isExpanded ? (
-                      <div className='flex items-center  gap-2'>
+                      <div className='flex items-center gap-2'>
                         <span>close</span>
                         <BsChevronCompactUp size={16} />
                       </div>
