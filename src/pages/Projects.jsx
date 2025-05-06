@@ -75,9 +75,13 @@ const Projects = ({ projects }) => {
           return (
             <div key={project.id} className='divide-y divide-gray-300'>
               <div
-                className={`text-center grid grid-cols-[auto,repeat(9,_1fr)] gap-2 p-2 items-center border-b border-x border-gray-200 hover:bg-gray-100 text-sm ${
-                  isSelected ? ' bg-blue-100' : ''
-                }`}
+                className={`text-center grid grid-cols-[auto,repeat(9,_1fr)] gap-2 p-2 items-center border-b border-x border-gray-200 hover:bg-gray-100 text-sm
+                  ${
+                    isExpanded
+                      ? 'border border-blue-600'
+                      : 'border-t border-gray-200'
+                  }
+                  ${isSelected ? ' bg-blue-100' : 'hover:bg-gray-50'}`}
               >
                 <div className='w-8'>
                   <label>
